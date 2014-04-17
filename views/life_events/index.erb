@@ -1,0 +1,46 @@
+<html>
+<head>
+	<title>Life Events and Schools Attended</title>
+	<link rel="stylesheet" type="text/css" href="/application.css">
+</head>
+<body>
+
+<div class = "top-bar"></div>
+
+<div class = "black-bar"><font class = "new-h1">
+List of Life Events and Schools Attended
+</font></div>
+
+<div id="blue_box">
+
+<!-- <div id="left"> -->
+
+<ul>
+	<% @life_events.each do |life_event| %>
+	<li><%= life_event.description %>
+	<a href = "/life_events/<%= life_event.id %>">DELETE?</a>
+	<a href = "/life_events/<%= life_event.id %>/edit">EDIT?</a>
+	<a href = "/life_events/<%= life_event.id %>/new">ADD?</a>
+	</li>
+
+	<% end %>
+</ul>
+
+<!-- </div>
+
+
+<div class="divider"></div>
+
+
+<div id="right">
+<form action = "/new" method="post">
+	<input type = "text" id="description" name="description" class = "input-text"><p></p>
+	<input type = "submit" class = "second-button margins">
+</form>
+</div> -->
+</div>
+
+
+
+</body>
+</html>
