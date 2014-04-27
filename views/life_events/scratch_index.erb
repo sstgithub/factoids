@@ -1,0 +1,20 @@
+<!-- <form action="/life_events" method="post">
+		<input type="text" id="life_event_description" name="life_event[description]" value="<%= @new_life_event.description %>">
+		<input type="submit">
+</form>
+
+<% #if @results %>
+<table>
+  <%@results.each #do |r|%>
+  <tr valign="top"> 
+    <td><%=r.title%></td>
+  </tr>
+  <%#end%>
+</table>
+<% #end %>
+
+
+<% form_tag users_path, #:method => :get do %>  
+    <%= text_field_tag #:search, params[:search], :value => 'Search' %>
+    <%= submit_tag #"Go", :name => nil %>
+<%#end%> -->

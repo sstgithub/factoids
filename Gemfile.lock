@@ -42,6 +42,8 @@ GEM
       rack (>= 1.0)
       rack-test (~> 0.6.2)
       ripl (>= 0.7.0)
+    scoped_search (2.7.1)
+      activerecord (>= 2.1.0)
     shotgun (0.9)
       rack (>= 1.0)
     sinatra (1.4.5)
@@ -67,6 +69,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord (= 4.0.4)
   debugger
+  scoped_search
   shotgun
   sinatra
   sinatra-activerecord

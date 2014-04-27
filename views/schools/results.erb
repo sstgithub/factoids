@@ -1,0 +1,14 @@
+<!-- <form action="/life_events/search" method="get">
+  <input type="text" name="query"/><br />   
+  <input type="submit" />
+</form> -->
+
+<% if @life_events %>
+<table>
+  <%@life_events.each do |l|%>
+  <tr valign="top">
+    <td><%=l.description%></td>
+  </tr>
+  <%end%>
+</table>
+<% end %>

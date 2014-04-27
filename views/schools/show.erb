@@ -1,0 +1,6 @@
+<%= @life_event.description %>
+
+<form action="/life_events/<%= @life_event.id %>" method="post">
+  <input type="hidden" name="_method" value="delete" />
+  <input type="submit" value="Delete" />
+</form>

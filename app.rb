@@ -3,13 +3,23 @@ require 'sinatra/activerecord'
 
 set :database, "sqlite3:///to_do_app.db"
 
-get "life_events/error" do
-	erb :"life_events/error"
+get "/error" do
+	erb :"/error"
 end
 
 get "/life_events" do 
 	@life_events = LifeEvent.all
 	erb :"life_events/index"
+end
+
+get "/schools" do 
+	@schools = School.all
+	erb :"schools/index"
+end
+
+post "/life_events/results" do
+	@life_events = LifeEvent.search(params[:query])
+	erb :"life_events/results"
 end
 
 #to delete
@@ -24,7 +34,7 @@ delete "/life_events/:id" do
 	if @life_event.delete
 		redirect "/life_events"
 	else
-		redirect "/life_events/error"
+		redirect "/error"
 	end
 end
 
@@ -57,11 +67,36 @@ post "/life_events" do
 	redirect "/life_events"
 end
 
+# #to search
+
+# get '/life_events/search' do
+# 	@life_events = LifeEvent.all
+#   # @life_events = LifeEvent.find(:description => "%#{params[:query]}%")
+#   if params[:search]
+#     @life_events = LifeEvent.search(params[:search]).order("created_at DESC")
+#   else
+#     @life_events = LifeEvent.all.order('created_at DESC')
+#   end
+#   erb :"life_events/search"
+# end
+
 class School < ActiveRecord::Base
+
+	def index
+	end
+
+	def self.search(query)
+  	where("name like ?", "%#{query}%") 
+	end
 end
 
 
 class LifeEvent < ActiveRecord::Base
-	def check_if_valid
+
+	def index
+	end
+
+	def self.search(query)
+  	where("description like ?", "%#{query}%") 
 	end
 end
