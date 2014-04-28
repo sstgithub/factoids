@@ -3,11 +3,12 @@
   <input type="submit" />
 </form> -->
 
-<% if @life_events %>
+<% if @schools %>
 <table>
-  <%@life_events.each do |l|%>
+  <%@schools.each do |l|%>
   <tr valign="top">
-    <td><%=l.description%></td>
+    <td><%=l.name%></td>
+    <td><%=l.location%></td>
   </tr>
   <%end%>
 </table>

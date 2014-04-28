@@ -22,6 +22,11 @@ post "/life_events/results" do
 	erb :"life_events/results"
 end
 
+post "/schools/results" do
+	@schools = School.search(params[:query])
+	erb :"schools/results"
+end
+
 #to delete
 
 get "/life_events/:id" do
@@ -33,6 +38,20 @@ delete "/life_events/:id" do
 	@life_event = LifeEvent.find(params[:id])
 	if @life_event.delete
 		redirect "/life_events"
+	else
+		redirect "/error"
+	end
+end
+
+get "/schools/:id" do
+	@school = School.find(params[:id])
+	erb :"schools/show"
+end
+
+delete "/schools/:id" do 
+	@school = School.find(params[:id])
+	if @school.delete
+		redirect "/schools"
 	else
 		redirect "/error"
 	end
@@ -52,6 +71,17 @@ put "/life_events/:id" do
 	redirect "/life_events"
 end
 
+get "/schools/:id/edit" do
+	@school = School.find(params[:id])
+	erb :"schools/edit"
+end
+
+put "/schools/:id" do
+	@school = School.find(params[:id])
+	@school.update_attributes(params[:school])
+	redirect "/schools"
+end
+
 
 #to add
 
@@ -65,6 +95,18 @@ post "/life_events" do
 	@life_event = LifeEvent.new(params[:life_event])
 	@life_event.save
 	redirect "/life_events"
+end
+
+get "/schools/:id/new" do
+	@school = School.new
+	@new_school = School.new
+	erb :"schools/new"
+end
+
+post "/schools" do
+	@school = School.new(params[:school])
+	@school.save
+	redirect "/schools"
 end
 
 # #to search

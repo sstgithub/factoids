@@ -1,7 +1,8 @@
-<%= @life_event.description %>
+<%= @school.name %>
 
-<form action="/life_events/<%= @life_event.id %>" method="post">
-		<input type="text" id="life_event_description" name="life_event[description]" value="<%= @life_event.description %>">
+<form action="/schools/<%= @school.id %>" method="post">
+		<input type="text" id="school_name" name="school[name]" value="<%= @school.name %>">
+		<input type="text" id="school_location" name="school[location]" value="<%= @school.location %>">
 		<input type="hidden" name="_method" value="put" /> 
 		<input type="submit">
 </form>

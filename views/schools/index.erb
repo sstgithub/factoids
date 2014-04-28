@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Life Events</title>
+	<title>Schools</title>
 	<link rel="stylesheet" type="text/css" href="/application.css">
 </head>
 <body>
@@ -8,7 +8,7 @@
 <div class = "top-bar"></div>
 
 <div class = "black-bar"><font class = "new-h1">
-List of Life Events and Schools Attended
+List of Schools Attended
 </font></div>
 
 <div id="blue_box">
@@ -16,11 +16,12 @@ List of Life Events and Schools Attended
 <!-- <div id="left"> -->
 
 <ul>
-	<% @life_events.each do |life_event| %>
-	<li><%= life_event.description %>
-	<a href = "/life_events/<%= life_event.id %>">DELETE?</a>
-	<a href = "/life_events/<%= life_event.id %>/edit">EDIT?</a>
-	<a href = "/life_events/<%= life_event.id %>/new">ADD?</a>
+	<% @schools.each do |school| %>
+	<li><%= school.name %>
+		<%= school.location %>
+	<a href = "/schools/<%= school.id %>">DELETE?</a>
+	<a href = "/schools/<%= school.id %>/edit">EDIT?</a>
+	<a href = "/schools/<%= school.id %>/new">ADD?</a>
 	</li>
 
 	<% end %>
@@ -41,8 +42,8 @@ List of Life Events and Schools Attended
 
 </div>
 
-<form action="/life_events/results" method="post">
-	<input type="text" id="life_event_description" placeholder="Search life events" 	name="query" value="<%= @results %>">
+<form action="/schools/results" method="post">
+	<input type="text" id="school_name" placeholder="Search schools" 	name="query" value="<%= @results %>">
   <input type="submit" />
 </form>
 
